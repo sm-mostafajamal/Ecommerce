@@ -1,11 +1,26 @@
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import Home from "./Components/Home";
+import Product from "./Components/Product";
+
 function App() {
   return (
-    <div>
-      <header>
-        <a href="/">Ecommerce</a>
-      </header>
-      <main>list of products</main>
-    </div>
+    <BrowserRouter>
+      <div>
+        <header>
+          <Link to={"/"}>Ecommerce</Link>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/product/:id" element={<Product />}>
+              Product
+            </Route>
+            <Route path="/" element={<Home />}>
+              Home
+            </Route>
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
