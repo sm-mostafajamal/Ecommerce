@@ -1,13 +1,22 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import Home from "./Components/Home";
-import Product from "./Components/Product";
+import { Navbar, Container } from "react-bootstrap";
+import Home from "./Pages/Home";
+import Product from "./Pages/Product";
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div className="d-flex flex-column site-container">
         <header>
-          <Link to={"/"}>Ecommerce</Link>
+          <Navbar bg="dark" variant="dark">
+            <Container>
+              <Navbar.Brand>
+                <Link to={"/"} className="e-link">
+                  Ecommerce
+                </Link>
+              </Navbar.Brand>
+            </Container>
+          </Navbar>
         </header>
         <main>
           <Routes>
@@ -19,6 +28,9 @@ function App() {
             </Route>
           </Routes>
         </main>
+        <footer className="text-center">
+          <div>All rights reserved</div>
+        </footer>
       </div>
     </BrowserRouter>
   );
