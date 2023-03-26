@@ -25,52 +25,52 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "SHIRT STYLE!",
+    img: "https://images.meesho.com/images/products/128668571/o00bi_512.jpg",
+    title: "PLAIN SHIRT",
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
+    img: "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/16407468/2021/12/28/fce7ca1e-01ec-4c12-a90f-c7b75abda0e01640669480687-Difference-of-Opinion-Men-Tshirts-4021640669480120-1.jpg",
+    title: "ROUND NECK T-SHIRT",
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    title: "LIGHT JACKETS",
+    img: "https://i.pinimg.com/originals/c9/f2/eb/c9f2ebcff9b9991225828f114a6af8fa.jpg",
+    title: "SHEEPSKIN COAT",
   },
 ];
 
 export const popularProducts = [
   {
     id: 1,
-    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
+    img: "https://shop.adarbepari.com/wp-content/uploads/2021/04/bangladesh-flag-cotton-tshirt.jpg",
   },
   {
     id: 2,
-    img: "https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+    img: "https://render.fineartamerica.com/images/rendered/default/t-shirt/23/25/images/artworkimages/medium/1/team-work-makes-the-dream-work-motivational-quote-quote-design-transparent.png?targetx=28&targety=-1&imagewidth=371&imageheight=575&modelwidth=430&modelheight=575",
   },
   {
     id: 3,
-    img: "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+    img: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71UNVUObaWL._AC_SX522_.jpg",
   },
   {
     id: 4,
-    img: "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+    img: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/81GNdnAjGMS._AC_UY1000_.jpg",
   },
   {
     id: 5,
-    img: "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+    img: "https://m.media-amazon.com/images/I/51CRoQryqnL._AC_.jpg",
   },
   {
     id: 6,
-    img: "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    img: "https://media.karousell.com/media/photos/products/2022/8/15/ready_stock_in_malaysia__baile_1660562484_1ee628fb_progressive.jpg",
   },
   {
     id: 7,
-    img: "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+    img: "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/71QQsPkC+ZL._UY550_.jpg",
   },
   {
     id: 8,
-    img: "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+    img: "https://images.vans.com/is/image/VansEU/VN0A3WMAVNE-HERO?$PDP-FULL-IMAGE$",
   },
 ];
