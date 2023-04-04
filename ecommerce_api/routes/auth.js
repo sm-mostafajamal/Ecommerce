@@ -2,6 +2,7 @@ const User = require("../models/User");
 const router = require("express").Router();
 const CryptoJS = require("crypto-js");
 const jwt = require("jsonwebtoken");
+
 // Register
 router.post("/register", async (req, res) => {
   const newUser = new User({
@@ -21,6 +22,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// LOGIN
 router.post("/login", async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
@@ -48,4 +50,5 @@ router.post("/login", async (req, res) => {
     res.status(500).json(error);
   }
 });
+
 module.exports = router;
