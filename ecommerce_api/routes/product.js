@@ -3,7 +3,6 @@ const {
   verifyTokenAdmin,
   verifyTokenAndAuthorization,
 } = require("./verifyToken");
-const CryptoJS = require("crypto-js");
 const router = require("express").Router();
 
 // Create
@@ -36,7 +35,7 @@ router.put("/:id", verifyTokenAdmin, async (req, res) => {
 router.delete("/:id", verifyTokenAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
-    res.status(200).json("Product successfully deleted");
+    res.status(200).json("Product has been deleted");
   } catch (error) {
     res.status(500).json(error);
   }
@@ -44,7 +43,7 @@ router.delete("/:id", verifyTokenAdmin, async (req, res) => {
 
 // GET
 
-router.get("/find/:id", verifyTokenAdmin, async (req, res) => {
+router.get("/find/:id", verifyTokenAndAuthorization, async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     res.status(200).json(product);
@@ -53,12 +52,20 @@ router.get("/find/:id", verifyTokenAdmin, async (req, res) => {
   }
 });
 
-// GET ALL
-router.get("/", verifyTokenAdmin, async (req, res) => {
-  const query = req.query.new;
+// GET ALL Products
+router.get("/", async (req, res) => {
+  const qNew = req.query.new;
+  const qCategory = req.query.category;
+
   try {
-    const products = query
-      ? await Product.find().sort({ _id: -1 }).limit(5)
+    const products = qNew
+      ? await Product.find().sort({ createdAt: -1 }).limit(5)
+      : qCategory
+      ? await Product.find({
+          categories: {
+            $in: [qCategory],
+          },
+        })
       : await Product.find();
     res.status(200).json(products);
   } catch (error) {
@@ -66,28 +73,4 @@ router.get("/", verifyTokenAdmin, async (req, res) => {
   }
 });
 
-// GET USER STATE
-router.get("/stats", verifyTokenAdmin, async (req, res) => {
-  const date = new Date();
-  const lastYear = new Date(date.setFullYear(date.getFullYear() - 1));
-  try {
-    const data = await Product.aggregate([
-      { $match: { createdAt: { $gte: lastYear } } },
-      {
-        $project: {
-          month: { $month: "$createdAt" },
-        },
-      },
-      {
-        $group: {
-          _id: "$month",
-          total: { $sum: 1 },
-        },
-      },
-    ]);
-    res.status(200).json(data);
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
 module.exports = router;
