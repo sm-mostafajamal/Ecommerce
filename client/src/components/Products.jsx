@@ -23,15 +23,44 @@ const Products = ({ cat, filters, sort }) => {
           : "http://localhost:3001/api/products"
       );
       setProducts(res.data);
-      console.log(res);
     };
     getProducts();
   }, [cat]);
+
+  useEffect(() => {
+    cat &&
+      setFilteredProducts(
+        products.filter((item) =>
+          Object.entries(filters).every(([key, value]) =>
+            item[key].includes(value)
+          )
+        )
+      );
+  }, [cat, filters, products]);
+  useEffect(() => {
+    if (sort === "newest") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.createdAt - b.createdAt)
+      );
+    } else if (sort === "asc") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.price - b.price)
+      );
+    } else if (sort === "desc") {
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => b.price - a.price)
+      );
+    }
+  }, [sort]);
   return (
     <Container>
-      {popularProducts.map((product) => (
-        <Product item={product} key={product.id} />
-      ))}
+      {cat
+        ? filteredProducts.map((product) => (
+            <Product item={product} key={product._id} />
+          ))
+        : products
+            .slice(0, 8)
+            .map((product) => <Product item={product} key={product._id} />)}
     </Container>
   );
 };
