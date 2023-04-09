@@ -4,6 +4,7 @@ import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import { Add, Remove } from "@mui/icons-material";
 import { mobile } from "../responsive";
+import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 const Wrapper = styled.div`
@@ -102,6 +103,7 @@ const Hr = styled.hr`
   background-color: #eee;
   border: none;
   height: 2px;
+  margin: 20px 0;
 `;
 const Summary = styled.div`
   flex: 1;
@@ -132,6 +134,7 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
   return (
     <Container>
       <Navbar />
@@ -148,63 +151,46 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-            <Product>
-              <ProductDetail>
-                <Image src="http://cdn.shopify.com/s/files/1/0601/4186/3076/products/vans-_cf_80_ce_b1_ce_b9_ce_b4_ce_b9_ce_ba_ce_b1_20_18_4f322474-89c2-4574-b08c-f6bc2770775f.jpg?v=1665866672" />
-                <Details>
-                  <ProductName>
-                    <b>Product: </b> Vans sneakers
-                  </ProductName>
-                  <ProductId>
-                    <b>ID: </b>7965869686
-                  </ProductId>
-                  <ProductColor color="black" />
-                  <ProductSize>
-                    <b>Size: </b>35.5
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetails>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
-              </PriceDetails>
-            </Product>
-            <Hr />
-            <Product>
-              <ProductDetail>
-                <Image src="https://i5.walmartimages.com/asr/462b86e9-c4f4-43ed-9a3e-6412dc0cbaa3.977c202f0d7736dec604605d64aafd82.jpeg?odnHeight=784&odnWidth=580&odnBg=FFFFFF" />
-                <Details>
-                  <ProductName>
-                    <b>Product: </b> Denim Jacket
-                  </ProductName>
-                  <ProductId>
-                    <b>ID: </b> 64635651646
-                  </ProductId>
-                  <ProductColor color="black" />
-                  <ProductSize>
-                    <b>Size: </b> M
-                  </ProductSize>
-                </Details>
-              </ProductDetail>
-              <PriceDetails>
-                <ProductAmountContainer>
-                  <Add />
-                  <ProductAmount>2</ProductAmount>
-                  <Remove />
-                </ProductAmountContainer>
-                <ProductPrice>$ 20</ProductPrice>
-              </PriceDetails>
-            </Product>
+            {cart.products.map((product) => (
+              <div>
+                <Product>
+                  <ProductDetail>
+                    <Image src={product.img} />
+                    <Details>
+                      <ProductName>
+                        <b>Product: </b> {product.title}
+                      </ProductName>
+                      <ProductId>
+                        <b>ID: </b>
+                        {product._id}
+                      </ProductId>
+                      <ProductColor color={product.color} />
+                      <ProductSize>
+                        <b>Size: </b>
+                        {product.size}
+                      </ProductSize>
+                    </Details>
+                  </ProductDetail>
+                  <PriceDetails>
+                    <ProductAmountContainer>
+                      <Add />
+                      <ProductAmount>{product.quantity}</ProductAmount>
+                      <Remove />
+                    </ProductAmountContainer>
+                    <ProductPrice>
+                      $ {product.price * product.quantity}
+                    </ProductPrice>
+                  </PriceDetails>
+                </Product>
+                <Hr />
+              </div>
+            ))}
           </Info>
           <Summary>
             <SummaryTitle>Order Summary</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ 100</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <SummaryItem>
               <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -216,7 +202,7 @@ const Cart = () => {
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ 100</SummaryItemPrice>
+              <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
             <Button>CHECKOUT </Button>
           </Summary>
