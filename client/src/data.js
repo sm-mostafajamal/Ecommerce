@@ -27,19 +27,16 @@ export const categories = [
     id: 1,
     img: "https://images.meesho.com/images/products/128668571/o00bi_512.jpg",
     title: "PLAIN SHIRT",
-    cat: "man",
   },
   {
     id: 2,
-    img: "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d29tYW4lMjB0JTIwc2hpcnR8ZW58MHx8MHx8&w=1000&q=80",
+    img: "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/16407468/2021/12/28/fce7ca1e-01ec-4c12-a90f-c7b75abda0e01640669480687-Difference-of-Opinion-Men-Tshirts-4021640669480120-1.jpg",
     title: "ROUND NECK T-SHIRT",
-    cat: "woman",
   },
   {
     id: 3,
     img: "https://i.pinimg.com/originals/c9/f2/eb/c9f2ebcff9b9991225828f114a6af8fa.jpg",
     title: "SHEEPSKIN COAT",
-    cat: "coat",
   },
 ];
 
