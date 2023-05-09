@@ -5,6 +5,7 @@ import {
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
 import { useState } from "react";
+import React from "react";
 
 const Container = styled.div`
   width: 100%;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Badge from "@mui/material/Badge";
 import { Search, ShoppingCartOutlined } from "@mui/icons-material";
+import React from "react";
 
 const Container = styled.div`
   height: 60px;

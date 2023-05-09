@@ -4,6 +4,8 @@ import {
   ShoppingCartOutlined,
 } from "@mui/icons-material";
 import styled from "styled-components";
+import React from "react";
+
 const Info = styled.div`
   opacity: 0;
   width: 100%;
